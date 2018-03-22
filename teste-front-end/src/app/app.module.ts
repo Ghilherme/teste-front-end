@@ -1,11 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
-
-
 
 import {
   MatAutocompleteModule,
@@ -16,6 +15,9 @@ import {
 
 import { SearchformComponent } from './searchform/searchform.component';
 
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,9 @@ import { SearchformComponent } from './searchform/searchform.component';
   ],
   imports: [
     BrowserModule,
-
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
 
@@ -32,7 +36,8 @@ import { SearchformComponent } from './searchform/searchform.component';
 
     MatToolbarModule,
 
-    FormsModule, ReactiveFormsModule
+    FormsModule,
+    MDBBootstrapModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

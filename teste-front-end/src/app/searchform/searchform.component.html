@@ -1,14 +1,19 @@
 <div class="container">
-  <div class="row">
-
-      <div class="group col- s12">
-        <mat-form-field class="buscarfield">
-          <input matInput placeholder="Buscar" value="">
-        </mat-form-field>
+  <div class="formMain row " [@transitionToTOP]='state'>
+    <form class="form col s12 valign-wrapper" (ngSubmit)="buscar()">
+      <div class="row">
+        <div class="input-field col s12">
+            <mat-form-field class="buscarfield">
+              <input #pesquisa id="pesquisa" matInput placeholder="Buscar"
+                     (keyup)="animateMe(pesquisa.value)">
+            </mat-form-field> 
+        </div>
       </div>
-      <div class="group col- s12">
-        <button mat-raised-button class="btnform" color="primary">Buscar</button>
+      <div class="row">
+        <div class="group col s12">
+          <button class="btn waves-effect waves-light"  type="submit">Buscar</button>
+        </div>
       </div>
-  
+    </form>
   </div>
 </div>

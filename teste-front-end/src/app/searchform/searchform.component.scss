@@ -1,4 +1,32 @@
-.buscarfield{
-    width: 500px;
-    margin: 0 10px;
+.vertical-center {
+    min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+    min-height: 500px; /* These two lines are counted as one :-)       */
+  
+    display: flex;
+    align-items: center;
+  }
+
+.container{
+    padding:10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px; 
 }
+.buscarfield{
+    margin: 0 10px;
+    min-width: 250px;
+}
+
+
+.formMain {
+    .form {
+      display: flex;
+      justify-content: center;
+
+      .group {
+        margin: 0 10px;
+      }
+
+    }
+  }
