@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {FormControl, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormControl,FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
 
+import {VideoService} from '../shared/video.service'
+import {VideoModel} from '../shared/video-model'
 
 
 @Component({
@@ -23,34 +25,57 @@ import { trigger,state,style,transition,animate,keyframes } from '@angular/anima
 			transition('top => down', animate('300ms ease')),
     ]),
 
-	]
+	],
+	providers: [VideoService]
 })
 export class SearchformComponent implements OnInit {
 	
-	private form: FormGroup;
+	
 	private state: string = 'down';
+	//@Input() pesquisa: string;
+	private myform: FormGroup;
+	public pesquisa: FormControl
+	public listVideos: VideoModel;
+
+	constructor( 
+		private videoService: VideoService,
+		//private formBuilder: FormBuilder,
+	 ) { }
 
 	ngOnInit() {
-		this.initForm();
+		this.createFormControls();
+		this.createForm();
 	}
 
   animateMe(value: string) {
-		console.log(value)
-				if(value == ''){
-					this.state ='down'
-				}else{
-					this.state = 'top'
-				}
+		(value == '' ? this.state = "down" : this.state = "top")
   }
 
-	private initForm() {
-		this.form = new FormGroup({
-			pesquisa: new FormControl('pesquisa',	 Validators.required)
-		});
+	createFormControls() {
+    this.pesquisa = new FormControl('', Validators.required);
 	}
+	
+	createForm() {
+    this.myform = new FormGroup({
+      pesquisa: this.pesquisa,
+    });
+  }
+	
 
 	buscar() {
-		//let formValue = this.form.value;
+		let formValue = this.myform.value;
+		console.log(formValue);
+		
+		this.videoService.searchVideo(formValue)
+			.subscribe((data: VideoModel) =>
+				{
+					this.listVideos = data;
+					console.log(this.listVideos)
+				},
+				error => console.log(error)
+			);
+			
+
 	}
 
 }

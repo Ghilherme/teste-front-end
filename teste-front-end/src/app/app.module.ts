@@ -1,10 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
+import {HttpModule} from '@angular/http'
 
-import { AppComponent } from './app.component';
-import { TopoComponent } from './topo/topo.component';
+
+import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import {
   MatAutocompleteModule,
@@ -14,20 +15,24 @@ import {
 } from '@angular/material';
 
 import { SearchformComponent } from './searchform/searchform.component';
-
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { AppComponent } from './app.component';
+import { TopoComponent } from './topo/topo.component';
+import { ListvideosComponent } from './listvideos/listvideos.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
-    SearchformComponent
+    SearchformComponent,
+    ListvideosComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatAutocompleteModule,
     MatButtonModule,
