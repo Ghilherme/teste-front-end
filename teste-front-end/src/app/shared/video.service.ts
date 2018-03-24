@@ -17,10 +17,9 @@ export class VideoService {
     constructor(private http: Http){}
 
     public searchVideo(id: string): Observable<object> {
-        let params = `videos?id=${id}&part=snippet,statistics&key=${this.KEY}`;
+        let params = `search?part=id,snippet&q=${id}&key=${this.KEY}`;
         return this.http.get(this.URL_API + params)
         .map((response: Response) => response.json())
-        .do(data => console.log('All: ' + JSON.stringify(data)))
         .catch(this.handleError);
     }
 

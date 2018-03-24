@@ -1,3 +1,17 @@
 <li class="video collection-item avatar">
-
+    <a  
+    [class.disabled]="!video.id ? true : null" 
+    [title]="video.title">
+  
+      <img [src]="video.thumbnail" class="circle" [alt]="video.title">
+  
+      <h3 class="title">{{ video.title }}</h3>
+      
+      <p class="description">{{ video.description }}</p>
+  
+      <span class="canal secondary-content">
+        <i *ngIf="!video.id;else canal" class="material-icons">video_library</i>
+        <ng-template #canal>Canal {{video.channelTitle}}</ng-template>
+      </span>
+    </a>
   </li>

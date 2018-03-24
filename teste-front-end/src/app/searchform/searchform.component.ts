@@ -1,11 +1,12 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output } from '@angular/core';
 import {FormControl,FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
-import { trigger,state,style,transition,animate,keyframes } from '@angular/animations';
+import { trigger,state,style,transition,animate,keyframes, query } from '@angular/animations';
 
 import {VideoService} from '../shared/video.service'
 import {VideoModel} from '../shared/video-model'
+import {DataService} from '../shared/data.service'
 
 
 @Component({
@@ -22,9 +23,8 @@ import {VideoModel} from '../shared/video-model'
 					transform: 'translateY(-100px)',
 			})),
 			transition('down => top', animate('300ms ease')),
-			transition('top => down', animate('300ms ease')),
+			transition('top => down',animate('300ms ease')),
     ]),
-
 	],
 	providers: [VideoService]
 })
@@ -32,14 +32,13 @@ export class SearchformComponent implements OnInit {
 	
 	
 	private state: string = 'down';
-	//@Input() pesquisa: string;
 	private myform: FormGroup;
 	public pesquisa: FormControl
-	public listVideos: VideoModel;
+	@Output() public listVideos: VideoModel;
 
 	constructor( 
 		private videoService: VideoService,
-		//private formBuilder: FormBuilder,
+		private dataService: DataService,
 	 ) { }
 
 	ngOnInit() {
@@ -64,13 +63,12 @@ export class SearchformComponent implements OnInit {
 
 	buscar() {
 		let formValue = this.myform.value;
-		console.log(formValue);
 		
-		this.videoService.searchVideo(formValue)
-			.subscribe((data: VideoModel) =>
+		this.videoService.searchVideo(formValue.pesquisa)
+			.subscribe((data) =>
 				{
-					this.listVideos = data;
-					console.log(this.listVideos)
+					this.dataService.API.next(data);
+					console.log(data)
 				},
 				error => console.log(error)
 			);

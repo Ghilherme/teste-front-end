@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import {HttpModule} from '@angular/http'
 
-
+import {DataService} from './shared/data.service'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import {
@@ -18,6 +18,7 @@ import { SearchformComponent } from './searchform/searchform.component';
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { ListvideosComponent } from './listvideos/listvideos.component';
+import { VideoService } from './shared/video.service';
 
 
 @NgModule({
@@ -44,7 +45,7 @@ import { ListvideosComponent } from './listvideos/listvideos.component';
     FormsModule,
     MDBBootstrapModule.forRoot(),
   ],
-  providers: [],
+  providers: [DataService, VideoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
