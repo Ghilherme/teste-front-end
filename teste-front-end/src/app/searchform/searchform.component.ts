@@ -5,7 +5,7 @@ import {ErrorStateMatcher} from '@angular/material/core';
 import { trigger,state,style,transition,animate,keyframes, query } from '@angular/animations';
 
 import {VideoService} from '../shared/video.service'
-import {VideoModel} from '../shared/video-model'
+import VideoModel from '../shared/video-model'
 import {DataService} from '../shared/data.service'
 
 
@@ -68,12 +68,9 @@ export class SearchformComponent implements OnInit {
 			.subscribe((data) =>
 				{
 					this.dataService.API.next(data);
-					console.log(data)
 				},
 				error => console.log(error)
 			);
-			
-
 	}
 
 }

@@ -1,13 +1,3 @@
 <app-topo></app-topo>
-<app-searchform (video)="listVideos"></app-searchform>
 
-
-<ul *ngIf="dados;else not_found" class="videos collection">
-        <app-listvideos *ngFor="let video of dados.items" [video]="{
-            id: video.id.videoId,
-            title: video.snippet.title,
-            description: video.snippet.description,
-            thumbnail: video.snippet.thumbnails.high.url,
-            channelTitle: video.snippet.channelTitle
-        }"></app-listvideos>
-    </ul>
+<router-outlet></router-outlet>

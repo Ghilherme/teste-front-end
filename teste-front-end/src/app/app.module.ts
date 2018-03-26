@@ -2,16 +2,17 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {HttpModule} from '@angular/http'
+import { HttpModule} from '@angular/http'
 
 import {DataService} from './shared/data.service'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import {
-  MatAutocompleteModule,
   MatButtonModule,
   MatInputModule,
   MatToolbarModule,
+  MatListModule,
+  MatIconModule
 } from '@angular/material';
 
 import { SearchformComponent } from './searchform/searchform.component';
@@ -19,6 +20,9 @@ import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { ListvideosComponent } from './listvideos/listvideos.component';
 import { VideoService } from './shared/video.service';
+import {RoutingModule} from './app.routing';
+import { VideodetailComponent } from './videodetail/videodetail.component';
+import { VideopageComponent } from './videopage/videopage.component'
 
 
 @NgModule({
@@ -26,7 +30,9 @@ import { VideoService } from './shared/video.service';
     AppComponent,
     TopoComponent,
     SearchformComponent,
-    ListvideosComponent
+    ListvideosComponent,
+    VideodetailComponent,
+    VideopageComponent
   ],
   imports: [
     HttpModule,
@@ -35,11 +41,11 @@ import { VideoService } from './shared/video.service';
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule,
     MatButtonModule,
-
+    MatListModule,
     MatInputModule,
-
+    MatIconModule,
+    RoutingModule,
     MatToolbarModule,
 
     FormsModule,

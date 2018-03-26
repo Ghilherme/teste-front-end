@@ -1,4 +1,4 @@
-export class VideoModel {
+export default class VideoModel {
 	id: string;
 	title: string;
 	description: string;

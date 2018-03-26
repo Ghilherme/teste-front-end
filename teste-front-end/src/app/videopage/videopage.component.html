@@ -1,0 +1,18 @@
+<app-searchform (video)="listVideos"></app-searchform>
+
+<mat-list *ngIf="videos;else notfound">
+        <app-listvideos *ngFor="let video of videos.items"
+            [video]="{
+            id: video.id.videoId,
+            title: video.snippet.title,
+            description: video.snippet.description,
+            thumbnail: video.snippet.thumbnails.high.url,
+            channelTitle: video.snippet.channelTitle
+            }">
+        </app-listvideos>
+</mat-list>
+
+
+<ng-template #notfound>
+    <p>No video found!</p>
+</ng-template>

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
-import {VideoModel} from '../shared/video-model';
+import VideoModel from '../shared/video-model';
 
 @Injectable()
 export class VideoService {
