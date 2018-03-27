@@ -1,3 +1,19 @@
-<p>
-  videodetail works!
-</p>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ video.title }}</mat-card-title>
+  </mat-card-header>
+  <div class="videothumbnail">
+    <iframe [src]="video.thumbnail | safe" frameborder="0" allowfullscreen></iframe>
+  </div>
+  <mat-card-content>
+    <p>
+      {{video.description}}
+    </p>
+  </mat-card-content>
+  <mat-card-footer>
+      <span>{{ video.statistics.viewCount | number }} visualizações</span>
+      <i class="material-icons">visibility</i>
+  </mat-card-footer>
+</mat-card>
+
+<button mat-raised-button class="btn waves-effect waves-light" color="primary" [routerLink]="['/']">Voltar </button>

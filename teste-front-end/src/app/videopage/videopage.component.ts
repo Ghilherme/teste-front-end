@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../shared/data.service';
-import VideoModel from '../shared/video-model';
+import {DataService} from '../shared/services/data.service'
+import VideoModel from '../shared/model/video-model';
 
 @Component({
   selector: 'app-videopage',
@@ -17,7 +17,6 @@ export class VideopageComponent implements OnInit {
   ngOnInit() {
     
     this.dataService.API.subscribe( data => this.videos = data );
-    console.log(this.videos)
   }
 
 }

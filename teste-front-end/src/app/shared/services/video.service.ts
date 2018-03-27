@@ -6,8 +6,6 @@ import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 
-import VideoModel from '../shared/video-model';
-
 @Injectable()
 export class VideoService {
 
@@ -22,6 +20,14 @@ export class VideoService {
         .map((response: Response) => response.json())
         .catch(this.handleError);
     }
+
+    public getVideo( id: string ): Observable<object>
+	{
+		let params = `videos?id=${id}&part=snippet,statistics&key=${this.KEY}`;
+		return this.http.get( this.URL_API + params )
+		.map( (response: Response) => response.json())
+		.catch( this.handleError );
+	}
 
     private handleError(error: Response) {
         console.error(error);

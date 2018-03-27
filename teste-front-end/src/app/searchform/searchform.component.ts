@@ -4,9 +4,9 @@ import {ErrorStateMatcher} from '@angular/material/core';
 
 import { trigger,state,style,transition,animate,keyframes, query } from '@angular/animations';
 
-import {VideoService} from '../shared/video.service'
-import VideoModel from '../shared/video-model'
-import {DataService} from '../shared/data.service'
+import {VideoService} from '../shared/services/video.service'
+import VideoModel from '../shared/model/video-model'
+import {DataService} from '../shared/services/data.service'
 
 
 @Component({
@@ -36,10 +36,8 @@ export class SearchformComponent implements OnInit {
 	public pesquisa: FormControl
 	@Output() public listVideos: VideoModel;
 
-	constructor( 
-		private videoService: VideoService,
-		private dataService: DataService,
-	 ) { }
+	constructor(private videoService: VideoService,	private dataService: DataService)
+	{	}
 
 	ngOnInit() {
 		this.createFormControls();

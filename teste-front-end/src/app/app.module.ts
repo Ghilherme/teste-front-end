@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpModule} from '@angular/http'
 
-import {DataService} from './shared/data.service'
+
+import {DataService} from './shared/services/data.service'
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
 
 import {
@@ -12,17 +13,19 @@ import {
   MatInputModule,
   MatToolbarModule,
   MatListModule,
-  MatIconModule
+  MatIconModule,
+  MatCardModule
 } from '@angular/material';
 
 import { SearchformComponent } from './searchform/searchform.component';
 import { AppComponent } from './app.component';
 import { TopoComponent } from './topo/topo.component';
 import { ListvideosComponent } from './listvideos/listvideos.component';
-import { VideoService } from './shared/video.service';
+import { VideoService } from './shared/services/video.service';
 import {RoutingModule} from './app.routing';
 import { VideodetailComponent } from './videodetail/videodetail.component';
 import { VideopageComponent } from './videopage/videopage.component'
+import { SafeURLPipe } from './shared/safeurl.pipe';
 
 
 @NgModule({
@@ -32,7 +35,8 @@ import { VideopageComponent } from './videopage/videopage.component'
     SearchformComponent,
     ListvideosComponent,
     VideodetailComponent,
-    VideopageComponent
+    VideopageComponent,
+    SafeURLPipe
   ],
   imports: [
     HttpModule,
@@ -47,6 +51,7 @@ import { VideopageComponent } from './videopage/videopage.component'
     MatIconModule,
     RoutingModule,
     MatToolbarModule,
+    MatCardModule,
 
     FormsModule,
     MDBBootstrapModule.forRoot(),
