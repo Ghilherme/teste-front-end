@@ -8,10 +8,10 @@ Desenvolvimento de um SPA para manipulação da API do youtube.
 
 ## Instruções de instalação
 - Necessário ter instalado o [Node.js](https://nodejs.org/en/)
-- Se não tiver instalado os módulos do npm instale-os com o comando `npm install`
+- Vá até a pasta do projeto (em 'teste-front-end') e instale os módulos do npm com `npm install`
 
 ## Rodando a aplicação
-- Inicie a aplicação com `ng serve` e navegue até `http://localhost:4200/`
+- Dentro da pasta do projeto inicie a aplicação com `ng serve` e navegue até `http://localhost:4200/`
 - Build da aplicação com `npm build --prod`
 
 ## Especificações 
