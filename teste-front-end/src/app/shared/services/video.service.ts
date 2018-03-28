@@ -34,4 +34,22 @@ export class VideoService {
         return Observable.throw(error.json().error || 'Server error');
     }
 
+    public nextPageVideo(id:string, nextPage: string){
+        let params = `search?part=id,snippet&q=${id}&pageToken=${nextPage}&key=${this.KEY}`
+        return this.http.get(this.URL_API + params)
+        .map((response: Response) => response.json())
+        .catch(this.handleError);
+    }
+
+    public filterData( data: any )
+	{
+        console.log(data)
+        if ( !data['activePage'] )
+			data['activePage'] = 1;
+		
+		data['totalResults'] = data['items'].length;
+        data['totalPages'] = Math.ceil( data['pageInfo'].totalResults / data['pageInfo'].resultsPerPage );
+		return data;
+	}
+
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from '../shared/services/data.service'
-import VideoModel from '../shared/model/video-model';
 
 @Component({
   selector: 'app-videopage',
@@ -10,13 +9,13 @@ import VideoModel from '../shared/model/video-model';
 export class VideopageComponent implements OnInit {
 
   private videos: any[]
-  
+  private videosearch: string
 
-  constructor( private dataService: DataService) { }
+  constructor( private dataService: DataService) {}
 
   ngOnInit() {
-    
-    this.dataService.API.subscribe( data => this.videos = data );
+    this.dataService.API.subscribe(data => this.videos = data );
+    this.dataService.videosearch.subscribe(data => this.videosearch= data)
   }
 
 }

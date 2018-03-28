@@ -1,18 +1,31 @@
-<app-searchform (video)="listVideos"></app-searchform>
+<app-searchform></app-searchform>
 
-<mat-list *ngIf="videos;else notfound">
-        <app-listvideos *ngFor="let video of videos.items"
-            [video]="{
-            id: video.id.videoId,
-            title: video.snippet.title,
-            description: video.snippet.description,
-            thumbnail: video.snippet.thumbnails.high.url,
-            channelTitle: video.snippet.channelTitle
-            }">
-        </app-listvideos>
-</mat-list>
+<div *ngIf="videos && videosearch">
+    <mat-list *ngIf="videos.totalResults">
+            <app-listvideos *ngFor="let video of videos.items"
+                [video]="{
+                id: video.id.videoId,
+                title: video.snippet.title,
+                description: video.snippet.description,
+                thumbnail: video.snippet.thumbnails.high.url,
+                channelTitle: video.snippet.channelTitle
+                }">
+            </app-listvideos>
+            
+    </mat-list>
 
+    <app-paginator *ngIf="videos.totalPages > 1" [videosearch] = "videosearch"
+        [paginator]="{
+            activepage: videos.activePage,
+            lenght: videos.totalPages, 
+            pagesize: videos.totalResults,
+            nextpagetoken: videos.nextPageToken,
+            prevpagetoken: videos.prevPageToken
+        }">
+    </app-paginator>
+</div>
 
-<ng-template #notfound>
+<div *ngIf="videos.totalPages < 1 && videos.totalResults == 0" #notfound>
     <p>No video found!</p>
-</ng-template>
+</div>
+

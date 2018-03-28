@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 export class DataService {
 
 	public API = new BehaviorSubject<any>([]);
+	public videosearch = new BehaviorSubject<string>('');
 
 	constructor() { }
 

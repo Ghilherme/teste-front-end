@@ -24,7 +24,6 @@ export class VideodetailComponent implements OnInit {
 
     this.VideoService.getVideo(this.routeID)
     .subscribe(data => {
-      console.log(this.routeID)
       console.log(data)
       this.video = {
         id: data['items'][0].id,
@@ -32,7 +31,7 @@ export class VideodetailComponent implements OnInit {
         description: data['items'][0].snippet.description,
         thumbnail: (`https://www.youtube.com/embed/${data['items'][0].id}`),
         channelTitle: data['items'][0].snippet.channelTitle,
-        statistics: data['items'][0].statistics
+        views: data['items'][0].statistics.viewCount
       }
     }) 
   }

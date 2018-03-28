@@ -14,7 +14,8 @@ import {
   MatToolbarModule,
   MatListModule,
   MatIconModule,
-  MatCardModule
+  MatCardModule,
+  MatPaginatorModule
 } from '@angular/material';
 
 import { SearchformComponent } from './searchform/searchform.component';
@@ -26,6 +27,7 @@ import {RoutingModule} from './app.routing';
 import { VideodetailComponent } from './videodetail/videodetail.component';
 import { VideopageComponent } from './videopage/videopage.component'
 import { SafeURLPipe } from './shared/safeurl.pipe';
+import { PaginatorComponent } from './paginator/paginator.component';
 
 
 @NgModule({
@@ -36,7 +38,8 @@ import { SafeURLPipe } from './shared/safeurl.pipe';
     ListvideosComponent,
     VideodetailComponent,
     VideopageComponent,
-    SafeURLPipe
+    SafeURLPipe,
+    PaginatorComponent
   ],
   imports: [
     HttpModule,
@@ -52,6 +55,7 @@ import { SafeURLPipe } from './shared/safeurl.pipe';
     RoutingModule,
     MatToolbarModule,
     MatCardModule,
+    MatPaginatorModule,
 
     FormsModule,
     MDBBootstrapModule.forRoot(),

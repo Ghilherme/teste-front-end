@@ -34,7 +34,6 @@ export class SearchformComponent implements OnInit {
 	private state: string = 'down';
 	private myform: FormGroup;
 	public pesquisa: FormControl
-	@Output() public listVideos: VideoModel;
 
 	constructor(private videoService: VideoService,	private dataService: DataService)
 	{	}
@@ -62,10 +61,13 @@ export class SearchformComponent implements OnInit {
 	buscar() {
 		let formValue = this.myform.value;
 		
+		this.dataService.videosearch.next(formValue.pesquisa)
+		
 		this.videoService.searchVideo(formValue.pesquisa)
 			.subscribe((data) =>
 				{
-					this.dataService.API.next(data);
+					console.log(data)
+					this.dataService.API.next( this.videoService.filterData(data));
 				},
 				error => console.log(error)
 			);
