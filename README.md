@@ -4,13 +4,11 @@ Desenvolvimento de um SPA para manipulação da API do youtube.
 ### Tecnologias utilizadas
 - Angular com Typescript
 - SASS
-- Filosofia Material Design utilizando Angular Material e Material Design for Bootstrap
+- Diretrizes Material Design utilizando Angular Material e Material Design for Bootstrap
 
 ## Instruções de instalação
-- Necessário ter instalado o node.js
-- Através do terminal na pasta do projeto instale o Angular Material `npm install --save @angular/material @angular/cdk`
-- Ainda na pasta do projeto instale o Material Design for Bootstrap `npm install bootstrap-material-design@4.1.1`
-- Tambem instale o SASS `npm install -g sass`
+- Necessário ter instalado o [Node.js](https://nodejs.org/en/)
+- Se não tiver instalado os módulos do npm instale-os com o comando `npm install`
 
 ## Rodando a aplicação
 - Inicie a aplicação com `ng serve` e navegue até `http://localhost:4200/`
